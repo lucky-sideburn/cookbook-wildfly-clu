@@ -1,0 +1,8 @@
+export JBOSS_USER=<%= node['wildfly-clu']['user'] %>
+export JBOSS_HOME=<%= node['wildfly-clu']['wildfly']['home'] %> 
+export JBOSS_CONSOLE_LOG=<%= node['wildfly-clu']['wildfly']['logs'] %>/console.log
+
+<% if node['wildfly-clu']['mode']['domain'] %>
+export JBOSS_MODE="domain"
+<% end %>
+

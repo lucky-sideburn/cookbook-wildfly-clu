@@ -1,0 +1,38 @@
+defaults
+    mode                    http
+    log                     global
+    option                  httplog
+    option                  dontlognull
+    option http-server-close
+    option forwardfor       except 127.0.0.0/8
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 3000
+
+listen admin 0.0.0.0:22002
+  mode http
+  stats uri /
+  stats refresh 10
+
+
+frontend  main *:80
+    default_backend         wildfly
+
+
+backend wildfly
+    balance     roundrobin
+
+    <% node['wildfly-clu']['cluster_schema'].keys.each do |server_name| %>
+      <% if server_name  == node.name%>
+      server  <%= server_name %>   <%= node['wildfly-clu']['cluster_schema'][server_name][:ip] %>:8080 check
+      <% else %>
+      server  <%= server_name %>   <%= server_name %>:8080 check
+     <% end %>
+    <%end%>
