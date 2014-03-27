@@ -46,9 +46,9 @@ if  node['wildfly-clu']['mode']['domain']
 
 
  default['wildfly-clu']['cluster_schema']       = { 
-					  "myserver1"  => { :role => "domain-controller" , :ip => "33.33.33.13",  :port_offset => "0" },
-					  "myserver2"  => { :role => "slave"  , :ip => "33.33.33.11" , :master => "myserver1" , :port_offset => "0"},
-					  "myserver3"  => { :role => "slave"  , :ip => "33.33.33.12" , :master => "myserver1" , :port_offset => "0" }
+					  "myserver1"  => { :role => "domain-controller" , :ip => "33.33.33.11",  :port_offset => "0" },
+					  "myserver2"  => { :role => "slave"  , :ip => "33.33.33.12" , :master => "myserver1" , :port_offset => "0"},
+					  "myserver3"  => { :role => "slave"  , :ip => "33.33.33.13" , :master => "myserver1" , :port_offset => "0" }
 
 					           }
 
