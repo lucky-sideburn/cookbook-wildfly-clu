@@ -41,6 +41,7 @@ if node['wildfly-clu']['cluster_schema'][node.name][:role] == "domain-controller
      group  wildfly_group
      mode  "0775"
      notifies :restart, "service[#{wildfly_service}]",:delayed
+     not_if { ::File.exists? node['wildfly-clu']['wildfly']['lock'] }
    end
   
    if node['wildfly-clu']['wildfly']['haproxy']
@@ -56,6 +57,7 @@ if node['wildfly-clu']['cluster_schema'][node.name][:role] == "domain-controller
        	   group    "root"
            mode     "0775"
            notifies :restart, "service[haproxy]",:delayed
+           not_if { ::File.exists? node['wildfly-clu']['wildfly']['lock'] }
          end  
 
          service "haproxy" do
@@ -77,6 +79,7 @@ template "#{wildfly_conf_path}/host.xml"do
   group  wildfly_group
   mode  "0775"
   notifies :restart, "service[#{wildfly_service}]",:delayed
+  not_if { ::File.exists? node['wildfly-clu']['wildfly']['lock'] }
 end
 
 
@@ -86,6 +89,7 @@ template "#{wildfly_conf_path}/mgmt-groups.properties"do
   group  wildfly_group
   mode  "0775"
   notifies :restart, "service[#{wildfly_service}]",:delayed
+  not_if { ::File.exists? node['wildfly-clu']['wildfly']['lock'] }
 end
 
 template "#{wildfly_conf_path}/mgmt-users.properties"do
@@ -94,6 +98,7 @@ template "#{wildfly_conf_path}/mgmt-users.properties"do
   group  wildfly_group
   mode  "0775"
   notifies :restart, "service[#{wildfly_service}]",:delayed
+  not_if { ::File.exists? node['wildfly-clu']['wildfly']['lock'] }
 end
 
 

@@ -12,6 +12,8 @@ default['wildfly-clu']['wildfly']['home']="/usr/local/#{node['wildfly-clu']['nam
 default['wildfly-clu']['wildfly']['base'] = "/usr/local"
 default['wildfly-clu']['wildfly']['logs'] = "/usr/local/#{node['wildfly-clu']['name']}/standalone/log"
 
+#if you create this file the recipe  will not change domain.xml,host.xml and mgmt-******.properties  after the first installation
+default['wildfly-clu']['wildfly']['lock'] = "/usr/local/#{node['wildfly-clu']['name']}/conf.lock"
 
 #######################################################################
 ## Set the following variable to true if you want use the domain mode.
