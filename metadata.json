@@ -3,7 +3,7 @@
   "version": "2.4.4",
   "maintainer": "Eugenio Marzo",
   "maintainer_email": "eugenio.marzo@yahoo.it",
-  "description": "install and configure Wildfly 8 in domain mode (use vagrant to set up quickly a cluster)"
+  "description": "install and configure Wildfly 8 in domain mode (use vagrant to set up quickly a cluster)",
   "license": "Apache 2.0",
   "platforms": {
   },
