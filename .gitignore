@@ -7,7 +7,7 @@ Berksfile.lock
 .*.sw[a-z]
 *.un~
 /cookbooks
-dv-lab.rb
+recipes/dv-lab.rb
 
 # Bundler
 Gemfile.lock
