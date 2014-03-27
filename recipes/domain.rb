@@ -98,15 +98,17 @@ end
 
 
 if  node['wildfly-clu']['cluster_schema'][node.name][:role] == "domain-controller" and  node['wildfly-clu']['wildfly']['deploy_hello_world']
+
   cookbook_file "helloworld.war" do
    path "/tmp/helloworld.war"
    owner  wildfly_user
    group  wildfly_group
    mode  "0775"
-   notifies :run, "bash[deploy]",:delayed
+   notifies :run, "bash[deploy_helloworld]",:delayed
   end
+ 
 
-  bash "deploy" do
+  bash "deploy_helloworld" do
    user wildfly_user
    code <<-EOH
    cd #{wildfly_base}/#{wildfly_name}/bin
