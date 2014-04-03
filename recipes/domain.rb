@@ -1,11 +1,7 @@
-#
-# Cookbook Name:: wildfly-clu
-# Recipe:: domain
-#
-# Copyright (C) 2014 Eugenio Marzo
-# 
-# All rights reserved - Do Not Redistribute
-#
+# Cookbook Name::   wildfly-clu
+# Recipe::          domain
+# Maintainer_email 'eugenio.marzo@yahoo.it'
+# License          'GPL'
 
 
 wildfly_user  =   node['wildfly-clu']['user']
