@@ -4,8 +4,8 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "Berkshelf-CentOS-6.3-x86_64-minimal"
-  config.vm.box_url = "https://dl.dropbox.com/u/31081437/Berkshelf-CentOS-6.3-x86_64-minimal.box"
-
+  #config.vm.box_url = "https://dl.dropbox.com/u/31081437/Berkshelf-CentOS-6.3-x86_64-minimal.box"
+  config.vm.box_url = "https://s3.amazonaws.com/itmat-public/centos-6.3-chef-10.14.2.box"
   config.vm.define "myserver1" do |myserver1|
    myserver1.vm.hostname = "myserver1" 
    myserver1.vm.network :private_network, ip: "33.33.33.11"
