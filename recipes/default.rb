@@ -17,7 +17,6 @@ user wildfly_user
 group wildfly_group
 
 remote_file "wildfly"  do
- source node['wildfly-clu']['wildfly']['url']
  owner  wildfly_user
  group  wildfly_group
  mode   0775
